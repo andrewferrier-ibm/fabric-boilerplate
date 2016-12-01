@@ -7,7 +7,7 @@ This boilerplate has been created and is maintained by the IBM CIC Groningen Blo
 
 ## Prerequisites
 - Go (https://golang.org/)
-- Govend (go get -u github.com/govend/govend)
+- Govend (go get -u github.com/govend/govend). You will also need to set up your [GOPATH](https://github.com/golang/go/wiki/GOPATH)
 - NodeJS (https://nodejs.org/)
 - Docker (https://www.docker.com/)
 - Nodemon (npm install nodemon -g)
@@ -22,10 +22,8 @@ If everything went fine until now, you should have a folder called vendor in src
 
 ### Setting up Hyperledger Fabric
 
-1. Pull _peer_ image: `docker pull rikmoedt/fabric-peer:0.5-dp`
-2. Pull _membersrvc_ image: `docker pull rikmoedt/fabric-membersrvc:0.5-dp`
-3. Pull _fabric-baseimage_ image: `docker pull rikmoedt/fabric-baseimage`
-4. Change tag to the _fabric-baseimage_: `docker tag rikmoedt/fabric-baseimage hyperledger/fabric-baseimage` (note: be sure you do not have already an image with the same tag, in that case, rename first the current _hyperledger/fabric-baseimage_ to something else)
+1. Pull _fabric-baseimage_ image: `docker pull rikmoedt/fabric-baseimage`
+1. Change tag to the _fabric-baseimage_: `docker tag rikmoedt/fabric-baseimage hyperledger/fabric-baseimage` (note: be sure you do not have already an image with the same tag, in that case, rename first the current _hyperledger/fabric-baseimage_ to something else)
 
 This will prepare a docker baseimage in which the chaincode will be launched and deployed. This process takes quite a while.
 
@@ -49,7 +47,7 @@ Check if the app is running at `http://localhost:8080/` in your browser. You can
 
 To make local development easier there is a script that will cleanup your environment, start the blockchain network and run the app. From your WORKSPACE/fabric-boilerplate folder:
 
-!Warning: this script removes all the docker containers that are running. If you are using docker for other applications as well at the moment and don't want to lose your container, don't run this script!
+*Warning*: this script removes all the docker containers that are running. If you are using docker for other applications as well at the moment and don't want to lose your container, don't run this script!
 
 > ./start.sh
 
